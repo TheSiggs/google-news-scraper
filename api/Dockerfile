@@ -45,7 +45,7 @@ RUN set -eux; \
 ###< recipes ###
 
 COPY frankenphp/conf.d/app.ini $PHP_INI_DIR/conf.d/
-COPY --chmod=755 frankenphp/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
+COPY frankenphp/docker-entrypoint.sh /usr/local/bin/docker-entrypoint
 COPY frankenphp/Caddyfile /etc/caddy/Caddyfile
 
 ENTRYPOINT ["docker-entrypoint"]
