@@ -24,7 +24,7 @@ readonly class GoogleNewsService {
             $url = $element->getAttribute('href');
             try {
                 $image = $element->filter('div > div > div > div > img')->getAttribute('src');
-                $image = $this->saveImage($image);
+//                $image = $this->saveImage($image);
                 $title = $element->filter('div > div:nth-child(2) > div:nth-child(2)')->getText();
                 $snippet = $element->filter('div > div:nth-child(2) > div:nth-child(3)')->getText();
                 $newsOutlet = $element->filter('div > div:nth-child(2) > div > span')->getText();

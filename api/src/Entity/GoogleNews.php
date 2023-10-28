@@ -8,14 +8,16 @@ use App\Repository\GoogleNewsRepository;
 use App\Resolver\GoogleNewsCollectionResolver;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Entity(repositoryClass: GoogleNewsRepository::class)]
 #[ApiResource(
+    normalizationContext: ['groups' => ['read']],
     graphQlOperations: [
         new QueryCollection(
             resolver: GoogleNewsCollectionResolver::class, args: [
                 'query' => ['type' => 'String!'],
-                'api_key' => ['type' => 'String!'],
+                'api_key' => ['type' => 'String'],
                 'results' => ['type' => 'Int']
             ], paginationEnabled: false, name: "query"
         ),
@@ -41,30 +43,32 @@ class GoogleNews
     private ?int $position = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Groups('read')]
     private ?string $link = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Groups('read')]
     private ?string $thumbnail = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Groups('read')]
     private ?string $title = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Groups('read')]
     private ?string $snippet = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups('read')]
     private ?string $source = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups('read')]
     private ?string $date = null;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function setId(?int $id): void {
-        $this->id = $id;
     }
 
     public function getQuery(): ?string
