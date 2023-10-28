@@ -20,6 +20,7 @@
         "symfony/framework-bundle": "6.3.*",
         "symfony/mercure-bundle": "^0.3.5",
         "symfony/monolog-bundle": "^3.8",
+        "symfony/panther": "^2.1",
         "symfony/property-access": "6.3.*",
         "symfony/property-info": "6.3.*",
         "symfony/runtime": "6.3.*",
@@ -27,10 +28,13 @@
         "symfony/serializer": "6.3.*",
         "symfony/twig-bundle": "6.3.*",
         "symfony/validator": "6.3.*",
-        "symfony/yaml": "6.3.*"
+        "symfony/yaml": "6.3.*",
+        "webonyx/graphql-php": "^15.7"
     },
     "require-dev": {
         "api-platform/schema-generator": "^5.0",
+        "dbrekelmans/bdi": "^1.1",
+        "roave/security-advisories": "dev-latest",
         "symfony/browser-kit": "6.3.*",
         "symfony/css-selector": "6.3.*",
         "symfony/debug-bundle": "6.3.*",

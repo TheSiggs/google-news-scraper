@@ -26,6 +26,7 @@ RUN apk add --no-cache \
 		file \
 		gettext \
 		git \
+    	chromium-chromedriver \
 	;
 
 RUN set -eux; \
@@ -52,6 +53,7 @@ ENTRYPOINT ["docker-entrypoint"]
 # https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
 ENV COMPOSER_ALLOW_SUPERUSER=1
 ENV PATH="${PATH}:/root/.composer/vendor/bin"
+ENV DISPLAY=:0
 
 COPY --from=composer_upstream --link /composer /usr/bin/composer
 
